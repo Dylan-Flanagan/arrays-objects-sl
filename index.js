@@ -90,7 +90,7 @@ export const addSneakerCount = ({ shoes, slogan, logo, headquarters }) => {
   const sneakerCount = shoeList.length
   return { shoes, slogan, logo, headquarters, sneakerCount }
 }
-// !! ANYTHING THAT IS A NON-PRIMITIVE GETS PASSED BY A PRIMITIVE !! \\
+// ^^ ANYTHING THAT IS A NON-PRIMITIVE GETS PASSED BY A PRIMITIVE ^^ \\
 
 // INPUT: brands from data.js
 // OUTPUT: the brand names listed
@@ -98,12 +98,19 @@ export const addSneakerCount = ({ shoes, slogan, logo, headquarters }) => {
 export const getBrandNames = (brands) => {
   return Object.keys(brands)
 }
-// !! Object.keys command grabs entire 'brands' object in data.js !! \\
-// !! Object.value does a similar thing !! \\
+// ^^ Object.keys command grabs entire 'brands' object in data.js ^^ \\
+// ^^ Object.value does a similar thing ^^ \\
 
 // INPUT: brands from data.js
 // OUTPUT: total number of sneaker types across all brands (14)
-export const totalSneakerCount = () => {}
+export const totalSneakerCount = (brands) => {
+  const sneakers = []
+  for (const brand of Object.keys(brands)) {
+    sneakers.push(...brands[brand].shoes)
+  }
+  return sneakers.length
+}
+// ^^ (...brands[brand].shoes) ALLOWS US TO GRAB SPECIFIC BRANDS WITH STACKED ITERATIONS (i.e. Nike => Puma => Adidas) ^^ \\
 
 // INPUT: An object
 // OUTPUT: An array with key value pairs converted to arrays
