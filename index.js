@@ -52,14 +52,17 @@ export const getSum = (...rest) => {
   return total
 }
 
+// !! THESE TESTS BOTH USE '...rest' as boogers, and could be substituted for more relevant names for a given context !! \\
+
 // INPUT: an unknown number of arguments
 // OUTPUT: an array with the first two arguments destructured and the remaining in a nested array
 // REQS: use rest parameters
 // getFirstTwoArgs(1, 2, 3, 4, 5) should return [1, 2, [3, 4, 5]]
 // getFirstTwoArgs('a', 'b', 'c', 'd') should return ['a', 'b', ['c', 'd']]
-export const getFirstTwoArgs = (a, b, ...rest) => {
-  return [a, b, rest]
+export const getFirstTwoArgs = (arg1, arg2, ...rest) => {
+  return [arg1, arg2, rest]
 }
+// ^^ WHY DOES THIS WORK??? vs using and returning (a, b, ...rest) ??? ^^ \\
 
 // INPUT: an object with the following structure
 // {
@@ -82,7 +85,12 @@ export const getFirstTwoArgs = (a, b, ...rest) => {
 //    return a NEW object, do not modify the object passed in to the function
 //    use spread operator to create a new object
 
-export const addSneakerCount = () => {}
+export const addSneakerCount = ({ shoes, slogan, logo, headquarters }) => {
+  const shoeList = [...shoes]
+  const sneakerCount = shoeList.length
+  return { shoes, slogan, logo, headquarters, sneakerCount }
+}
+// ANYTHING THAT IS A NON-PRIMITIVE GETS PASSED BY A PRIMITIVE \\
 
 // INPUT: brands from data.js
 // OUTPUT: the brand names listed
