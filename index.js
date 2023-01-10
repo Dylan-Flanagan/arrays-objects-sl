@@ -24,7 +24,7 @@ export const printUserInfo = ({
   name: { first, last },
   info: {
     favorites: { food, color },
-    pet: { type, name },
+    pet: { name: petName },
     address: { street, number, city, country },
   },
 }) => {
@@ -33,7 +33,7 @@ export const printUserInfo = ({
     Full Name: ${first} ${last},
     Favorite Color: ${color},
     Favorite Food: ${food},
-    Pet Name: ${name},
+    Pet Name: ${petName},
     Address: ${number} ${street}, ${city}, ${country}
     `
 }
