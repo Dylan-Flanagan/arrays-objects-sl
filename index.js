@@ -90,12 +90,16 @@ export const addSneakerCount = ({ shoes, slogan, logo, headquarters }) => {
   const sneakerCount = shoeList.length
   return { shoes, slogan, logo, headquarters, sneakerCount }
 }
-// ANYTHING THAT IS A NON-PRIMITIVE GETS PASSED BY A PRIMITIVE \\
+// !! ANYTHING THAT IS A NON-PRIMITIVE GETS PASSED BY A PRIMITIVE !! \\
 
 // INPUT: brands from data.js
 // OUTPUT: the brand names listed
 // REQS: use Object.keys to solve
-export const getBrandNames = () => {}
+export const getBrandNames = (brands) => {
+  return Object.keys(brands)
+}
+// !! Object.keys command grabs entire 'brands' object in data.js !! \\
+// !! Object.value does a similar thing !! \\
 
 // INPUT: brands from data.js
 // OUTPUT: total number of sneaker types across all brands (14)
